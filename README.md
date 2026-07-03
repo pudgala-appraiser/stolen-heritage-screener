@@ -6,7 +6,7 @@
 
 ## 사용
 
-- 브라우저에서 바로 사용: **(Pages 주소 — 저장소 개설 후 이 줄을 교체하세요)**
+- 브라우저에서 바로 사용: **(Pages 주소 — https://pudgala-appraiser.github.io/stolen-heritage-screener)**
 - 또는 `index.html`을 내려받아 더블클릭으로 실행합니다. 대조 기능은 인터넷 없이도 동작합니다.
 
 ## 이 도구의 성격 (중요)
