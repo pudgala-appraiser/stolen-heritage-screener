@@ -1,0 +1,19 @@
+{
+ "name": "도난국가유산 스크리너",
+ "short_name": "도난스크리너",
+ "description": "국가유산청 공개 도난 국가유산 정보 대조 1차 스크리너",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#f6f8f9",
+ "theme_color": "#0f6b5f",
+ "lang": "ko",
+ "icons": [
+  {
+   "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%230f6b5f'/><text x='32' y='46' font-size='38' fill='%23a8843a' text-anchor='middle' font-family='serif' font-weight='600'>査</text></svg>",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "any"
+  }
+ ]
+}
