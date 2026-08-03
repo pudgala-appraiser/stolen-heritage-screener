@@ -1,7 +1,7 @@
 {
- "name": "도난국가유산 스크리너",
- "short_name": "도난스크리너",
- "description": "국가유산청 공개 도난 국가유산 정보 대조 1차 스크리너",
+ "name": "도난국가유산 검색기",
+ "short_name": "도난검색기",
+ "description": "국가유산청 공개 도난 국가유산 정보 대조 1차 검색기",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",
