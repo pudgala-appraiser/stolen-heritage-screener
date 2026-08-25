@@ -20,6 +20,7 @@ h1{font-size:20px;margin:0;color:var(--ondark);font-weight:800;letter-spacing:1p
 main{max-width:900px;margin:0 auto;padding:22px 18px 10px}
 h2{font-size:17px;margin:34px 0 10px;color:var(--ink);font-weight:800}
 h2 .n{display:inline-block;background:var(--accent);color:var(--ondark);width:24px;height:24px;text-align:center;line-height:24px;font-size:13px;margin-right:8px;font-weight:800}
+h3{font-size:15px;margin:20px 0 4px;color:var(--ink);font-weight:800}
 .card{background:var(--box);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px;margin-bottom:14px}
 .q{font-family:Consolas,monospace;background:var(--bg);border:1px solid var(--line);padding:1px 8px;font-size:13.5px;white-space:nowrap}
 .tab{display:inline-block;background:var(--accent);color:var(--ondark);padding:2px 10px;font-size:13px;font-weight:700;white-space:nowrap}
@@ -37,7 +38,26 @@ th{background:var(--boxdeep);color:var(--ink);font-weight:700}
 strong{color:var(--ink)}
 footer{max-width:900px;margin:0 auto;padding:8px 18px 30px;color:var(--faint);font-size:12.5px;border-top:1px solid var(--line)}
 a{color:var(--accent)}
-@media print{.card,.warn-box,.note-box,.safe-box,table{break-inside:avoid}}
+.split{margin:40px 0 0;padding:14px 16px;background:var(--boxdeep);border-top:3px solid var(--ink);border-bottom:1px solid var(--line)}
+.split b{color:var(--ink);display:block;font-size:15px;margin-bottom:2px}
+.split span{font-size:13px;color:var(--sub)}
+ol.steps{margin:8px 0 0;padding-left:20px}
+ol.steps li{margin:6px 0}
+.jump{font-size:13px;color:var(--sub);border-left:3px solid var(--flag);padding:2px 0 2px 10px;margin:14px 0}
+@page{size:A4;margin:16mm 14mm 18mm}
+@media print{
+body{font-size:10.2pt;line-height:1.55;background:#fff}
+main{max-width:none;padding:12px 0 0}
+p{margin:.55em 0}
+header{padding:10px 14px 8px}
+h1{font-size:17px}
+h2{font-size:15px;margin:22px 0 8px;break-after:avoid}
+h3{break-after:avoid}
+table{font-size:9.6pt}
+th,td{padding:6px 8px}
+.card,.warn-box,.note-box,.safe-box,.split,.jump,table,tr,ol.steps,ul{break-inside:avoid}
+footer{padding:8px 0 0}
+}
 </style>
 </head>
 <body>
@@ -54,6 +74,8 @@ a{color:var(--accent)}
 공개된 도난 기록 513건과 견주어 <strong>비슷한 기록이 있는지 보여줄 뿐</strong>이며, 최종 판단은 언제나 사람이 합니다.
 설치나 로그인 없이 브라우저에서 바로 쓸 수 있고, <strong>입력한 자료는 어디로도 전송되지 않습니다.</strong></p>
 
+<p class="jump">심사 업무에 쓰시거나 도입을 검토하시는 분은 <strong>6~9번</strong>을 함께 읽어 주세요 — 자료의 기준일, 실무 절차, 잡히지 않는 범위, 검증 방법.</p>
+
 <h2><span class="n">1</span>바로 해보기</h2>
 
 <div class="card">
@@ -63,13 +85,13 @@ a{color:var(--accent)}
 <p><strong>인물로 찾을 때</strong><br>
 <span class="tab">DB 열람</span><span class="arrow">→</span><span class="q">이순신</span>
 <span class="arrow">→</span> 5건 — 쌍룡검, 난중일기 초고본(을미일기), 감결 등.
-<span class="q">안중근</span>을 치면 유묵이 나옵니다.</p>
+<span class="q">안중근</span>을 치면 유묵이, <span class="q">권율</span>을 치면 행주산성 소장 영정이 나옵니다.</p>
 <p style="margin-bottom:0"><strong>특정 유물이 걸리는지 확인할 때</strong><br>
 <span class="tab">단건 검색</span><span class="arrow">→</span><span class="q">횡성 불두</span> · <span class="q">옥천사</span> · <span class="q">시왕도</span> · <span class="q">장군석</span>
 <span class="arrow">→</span> 비슷한 도난 기록이 점수와 함께 나옵니다.</p>
 </div>
 
-<p>짧은 단어도 됩니다. 점수가 낮아 후보로 안 잡히면 화면 아래 <strong>「부분일치 열람」</strong>이 같은 단어가 든 기록을 대신 보여줍니다 — <span class="q">권율</span>처럼 유물명이 아닌 인명도 관련 기록(정충신 영정)이 이 경로로 나옵니다.</p>
+<p>짧은 단어도 됩니다. 점수가 낮아 후보로 안 잡히면 화면 아래 <strong>「부분일치 열람」</strong>이 같은 단어가 든 기록을 대신 보여줍니다 — <span class="q">불두</span>처럼 두 글자짜리 질의도 이 경로로 확인됩니다.</p>
 
 <h2><span class="n">2</span>화면 구성</h2>
 
@@ -77,9 +99,9 @@ a{color:var(--accent)}
 <tr><th style="width:120px">탭</th><th>용도</th></tr>
 <tr><td><span class="tab">환지본처</span></td><td>열 때마다 아직 돌아오지 못한 도난 유산 한 점을 보여줍니다. 還至本處 — 제자리로 돌아가기까지.</td></tr>
 <tr><td><span class="tab">목록 대조</span></td><td><strong>여러 건을 한꺼번에</strong> — 엑셀 파일을 올리거나 한글·워드·엑셀 표를 복사해 붙여넣으면 전 건을 일괄 대조합니다. 구입 목록·기증 목록 심사에 씁니다.</td></tr>
-<tr><td><span class="tab">단건 검색</span></td><td><strong>한 건을 자세히</strong> — 유물 이름을 넣고 대조합니다.</td></tr>
+<tr><td><span class="tab">단건 검색</span></td><td><strong>한 건을 자세히</strong> — 유물 이름을 넣고 대조합니다. 이름 전체보다 <strong>특징 단어 몇 개</strong>가 낫습니다.</td></tr>
 <tr><td><span class="tab">이미지 대조</span></td><td>사진 파일을 올려 도난 기록의 사진과 견줍니다. <strong>단, 한계가 있습니다 — 4번을 꼭 읽어 주세요.</strong></td></tr>
-<tr><td><span class="tab">DB 열람</span></td><td>기록 513건 전체를 표로 훑어봅니다. 필터에 지역·인명·유물명 아무거나.</td></tr>
+<tr><td><span class="tab">DB 열람</span></td><td>기록 513건 전체를 표로 훑어봅니다. 필터에 지역·인명·유물명 아무거나.<br><span class="small">단, 이 필터는 유물명·지역·번호만 봅니다 — 공고 원문까지 훑으려면 <b>단건 검색</b>을 쓰세요.</span></td></tr>
 <tr><td><span class="tab">도움말</span></td><td>상세 설명. <span class="small">(DB 관리·발행 탭은 운영자용입니다.)</span></td></tr>
 </table>
 
@@ -91,6 +113,8 @@ a{color:var(--accent)}
 <tr><td><span class="res-hit">전문히트</span></td><td>이름 전체는 다르지만 드문 단어가 기록 원문에 등장합니다.</td><td>함께 표시되는 원문 발췌를 읽고 관련이 있는지 판단하세요. 지역명·일반어가 우연히 걸리기도 합니다.</td></tr>
 <tr><td><span class="res-pass">통과</span></td><td>공개 도난 기록과 접점이 없습니다.</td><td><strong>"도난품 아님"의 증명이 아닙니다.</strong> 기록에 없을 뿐입니다.</td></tr>
 </table>
+
+<p class="small">경보 기준은 조절할 수 있습니다. 다만 기본값은 시험으로 고정한 값이니 <strong>그대로 두시길 권합니다.</strong> 낮추면 헛경보가 늘고, 올리면 놓칠 위험이 커집니다.</p>
 
 <div class="warn-box">
 <strong>경보후보가 떠도 그 물건을 도난품이라 단정하지 마세요.</strong>
@@ -130,16 +154,118 @@ a{color:var(--accent)}
 <tr><td><strong style="color:var(--done)">회수 완료</strong></td><td>전량 회수된 기록입니다. 이력 참고용으로만 표시됩니다.</td></tr>
 </table>
 
-<h2><span class="n">6</span>자주 묻는 것</h2>
+<div class="split">
+<b>여기까지가 기본 사용법입니다</b>
+<span>아래는 심사 업무에 쓰시거나 도입을 검토하시는 분을 위한 내용입니다 — 자료의 기준일(6), 실무 절차(7), 잡히지 않는 범위(8), 검증 방법(9).</span>
+</div>
+
+<h2><span class="n">6</span>자료의 범위와 기준일</h2>
+
+<h3>어디서 온 자료인가</h3>
+<p>국가유산청 누리집에 공개된 도난 국가유산 정보(사진 포함)를 바탕으로 목록을 만들고, 이를 정비해 발간한 출판 자료의 전문을 다시 기계 판독해 대조용 자료로 구축했습니다. <strong>출처는 전부 공개 행정정보 범위 안입니다.</strong></p>
+
+<table>
+<tr><th style="width:150px">구분</th><th style="width:80px">건수</th><th>내용</th></tr>
+<tr><td>도난 기록</td><td>513건</td><td>미회수 512 + 전량 회수 완료 1</td></tr>
+<tr><td>유실 공고</td><td>11건</td><td>도난이 아닌 소재불명 신고 건. 구분 표시됨</td></tr>
+<tr><td>사진 지문</td><td>816건</td><td>이미지 대조용</td></tr>
+<tr><td>누리집 직링크</td><td>512건</td><td>결과 카드에서 원 공고로 바로 연결</td></tr>
+</table>
+
+<div class="warn-box">
+<strong>자료 기준일 — 이 도구의 가장 현실적인 약점입니다.</strong><br>
+대조 자료는 <strong>2025년 7월말 기준 출판 자료와 그 이후 반영된 갱신분</strong>입니다.
+그 뒤에 새로 공고된 도난 건은 들어 있지 않습니다.
+따라서 <strong>최근 공고 건은 여기서 통과되더라도 반드시 누리집을 직접 확인</strong>하셔야 합니다.
+갱신 주기와 담당이 정해지지 않으면 시간이 갈수록 이 간격이 벌어집니다.
+</div>
+
+<h2><span class="n">7</span>심사 실무에서 쓰는 법</h2>
+
+<h3>취득 심사 — 구입·기증 목록</h3>
+<p>목록을 엑셀이나 표째로 <span class="tab">목록 대조</span>에 넣습니다. 유물명 열만 있어도 되고, 규격·재질·시대 열이 함께 있으면 정확도가 올라갑니다.
+전 건이 <span class="res-alert">경보후보</span>·<span class="res-hit">전문히트</span>·<span class="res-pass">통과</span>로 갈리므로 <strong>앞의 두 갈래만 확인</strong>하면 됩니다.</p>
+
+<h3>반출 감정 — 개별 물품</h3>
+<p><span class="tab">단건 검색</span>과 <span class="tab">이미지 대조</span>를 함께 씁니다. 글자로 안 걸려도 사진으로 걸릴 수 있고, 그 반대도 있습니다.</p>
+
+<h3>어떤 말을 넣어야 잘 걸리는가</h3>
+<p>유통 과정에서 <strong>사찰명·종가명·소장처 같은 전래 정보는 가장 먼저 지워집니다.</strong> 지우는 데 비용이 들지 않기 때문입니다.
+반대로 <strong>새김 글, 서명, 간기, 재질, 존명, 드문 유형명, 실측 규격은 남습니다</strong> — 지우면 그 자체가 훼손이고 값이 사라지기 때문입니다.
+이 도구는 뒤쪽을 신호로 삼도록 만들었으니, 넣으실 때도 뒤쪽을 쓰십시오.</p>
+<ul>
+<li>현판·비석·범종의 <strong>새김 글 구절</strong></li>
+<li>「○○년 ○○사 개판」 같은 <strong>간기·발문</strong></li>
+<li>나한상의 존자 이름, 시왕도의 대왕 이름 같은 <strong>존명</strong></li>
+<li>화각실패·분재기·공신회맹문 같은 <strong>드문 유형명</strong></li>
+<li>철조·건칠·소조 + 존명처럼 <strong>재질과 도상의 조합</strong></li>
+</ul>
+
+<h3>경보후보가 떴을 때의 절차</h3>
+<ol class="steps">
+<li><strong>소장자·의뢰인에게 도난 사실을 말하지 마십시오.</strong> 아직 확인되지 않은 후보입니다.</li>
+<li>카드의 링크로 <strong>누리집 원 공고를 열어</strong> 사진·규격·수량·회수현황을 대조합니다.</li>
+<li>부분 회수 건이면 <strong>그 물건이 이미 회수된 것인지</strong> 먼저 봅니다. 회수품 사진이 공고에 남아 있는 사례가 실제로 있습니다.</li>
+<li>동일 개체로 판단되면 <strong>국가유산청 사범단속 담당 부서로 조회</strong>하고, 심사는 회신까지 보류합니다.</li>
+<li>헛경보로 판단되면 진행하되, <strong>판단 근거를 심사 기록에 남깁니다.</strong></li>
+</ol>
+
+<h2><span class="n">8</span>무엇을 못 잡는가</h2>
+
+<p>이 도구가 막아 주는 것은 <strong>「기록에 있는데 못 알아본 경우」</strong> 하나뿐입니다. 아래는 원리상 걸리지 않습니다.</p>
+
+<table>
+<tr><th style="width:210px">잡히지 않는 것</th><th>이유</th></tr>
+<tr><td><strong>신고되지 않은 도난품</strong></td><td>기록 자체가 없습니다. 도난 사실을 아무도 신고하지 않았다면 어떤 대조로도 걸리지 않습니다.</td></tr>
+<tr><td><strong>기준일 이후 공고 건</strong></td><td>6번 참조. 최근 건은 누리집을 직접 보셔야 합니다.</td></tr>
+<tr><td><strong>사진 없는 기록 30건 안팎</strong></td><td>그중 스물두 건이 5점 이상 대량 전적으로 합계 3,938점입니다. 개별 촬영본이 애초에 없는 유형이라 사진 채널로는 잡히지 않습니다. 이 구간은 글자와 규격에만 의존합니다.</td></tr>
+<tr><td><strong>새로 촬영된 사진</strong></td><td>4번 참조. <strong>지문이 안 맞았다는 것이 다른 유물이라는 뜻은 아닙니다.</strong></td></tr>
+<tr><td><strong>뒷면 묵서·소장번호·보수흔</strong></td><td>개체를 확정 짓는 단서는 대개 앞면 사진에 잡히지 않습니다. 이미지 대조 정확도에는 구조적인 천장이 있습니다.</td></tr>
+</table>
+
+<div class="note-box">
+그물의 구멍이 어디인지 알고 쓰는 것과 모르고 쓰는 것은 전혀 다릅니다.
+<strong>통과 표시는 안전 인증이 아니라 「여기서는 걸리지 않았다」는 기록일 뿐입니다.</strong>
+</div>
+
+<h2><span class="n">9</span>이 도구를 믿어도 되는 근거</h2>
+
+<h3>열 때마다 스스로 시험합니다</h3>
+<p>이미 알려진 도난 건 <strong>네 건을 접속할 때마다 자동으로 조회</strong>해 정확히 그 건이 나오는지 확인하고, 결과를 화면 위쪽에 표시합니다.
+자료나 대조 로직이 깨지면 즉시 드러납니다. <strong>이 표시가 통과로 나오지 않으면 그 판본을 쓰지 마십시오.</strong></p>
+
+<h3>가상 목록 100건으로 되풀이 시험합니다</h3>
+<p>실제 도난품 이름을 그대로 쓰지 않고, 유통 상황을 가정해 전래 정보를 지운 표기로 짠 시험 목록입니다.
+결과는 <strong>경보후보 8건 · 전문히트 5건 · 통과 87건</strong>이며, 이 값이 첫 판본부터 지금까지 <strong>한 번도 바뀌지 않았습니다.</strong></p>
+<p class="small">여기에는 <strong>일부러 넣은 「걸리지 않아야 정상인 건」</strong>도 있습니다. 글자 대조의 천장을 드러내 사진 채널이 왜 필요한지 확인하기 위한 것입니다.</p>
+
+<h3>기능을 고쳐도 판정 기준이 흔들리지 않습니다</h3>
+<p>대조 로직은 고정해 두고 새 기능은 별도 경로로 붙입니다.
+판본을 낼 때마다 대조 함수의 소스 지문을 직전 판본과 견주어 전건 같은지 확인합니다.
+<strong>화면이나 기능이 바뀌어도 판정 기준은 그대로라는 것을 값으로 증명하는 절차입니다.</strong></p>
+
+<h3>실제로 쓴 기록</h3>
+<p>5개 기관의 취득 심사 자료 <strong>319건</strong>을 대조했습니다. 경보 0건, 검토 후 배제 1건이었습니다.
+배제 건은 분재기 한 점이 기록의 유사 항목과 걸렸으나 연기(年紀)와 문서 성격이 달라 동명이물로 판정한 것입니다.
+사진 채널에서는 안중근 유묵 사진을 넣어 해당 도난 건이 <strong>지문 거리 0으로 적중</strong>하는 것을 확인했습니다.</p>
+
+<h2><span class="n">10</span>자주 묻는 것</h2>
 
 <p><strong>Q. 내가 올린 목록·사진이 어디로 전송되나요?</strong><br>
-아닙니다. 대조는 전부 이 브라우저 안에서 이루어지고, <strong>서버가 없습니다.</strong> 올린 자료는 화면을 닫으면 사라집니다.</p>
+아닙니다. 대조는 전부 이 브라우저 안에서 이루어지고, <strong>서버가 없습니다.</strong> 올린 자료는 화면을 닫으면 사라집니다.
+기관이 제출한 심사 자료를 외부에 올리지 않고 대조할 수 있다는 뜻이기도 합니다.</p>
 
 <p><strong>Q. 여기서 통과되면 거래해도 되는 건가요?</strong><br>
 통과는 <strong>공개 기록에 없다</strong>는 뜻일 뿐입니다. 신고되지 않은 도난품, 기록에 사진이 없는 유물은 이 검사로 잡을 수 없습니다. 출처(전래 경위)가 분명한지 확인하는 일은 여전히 필요합니다.</p>
 
 <p><strong>Q. 기록의 원 출처는 어디인가요?</strong><br>
 국가유산청이 공개한 도난 국가유산 목록·공고입니다. 각 결과 카드의 링크로 원 공고에 바로 연결됩니다.</p>
+
+<p><strong>Q. 인터넷이 없어도 쓸 수 있나요?</strong><br>
+됩니다. 파일 하나에 자료가 다 들어 있어 내려받아 두면 그 파일만으로 동작합니다. 다만 <strong>「누리집 게시글 열기」 링크는 연결이 있어야</strong> 열립니다.</p>
+
+<p><strong>Q. 새 도난 공고는 어떻게 반영되나요?</strong><br>
+운영자용 화면에서 등록한 뒤 새 파일을 내려받아 기존 파일을 바꾸는 방식입니다. 주소는 바뀌지 않습니다. 정기 정비는 별도 작업이라 <strong>갱신 주기와 담당을 정해 두어야</strong> 합니다.</p>
 
 <div class="safe-box">
 <strong>도난 국가유산을 발견하셨거나 의심 물품을 알고 계신 분은</strong><br>
@@ -150,7 +276,9 @@ a{color:var(--accent)}
 </main>
 
 <footer>
-도난국가유산 검색기 사용 안내 · 기록 513건 기준(2026-08-12) ·
+도난국가유산 검색기 사용 안내 · <strong>문서 작성 2026-08-25</strong> · 배포본 v2.1p ·
+기록 513건(자료 정비 2026-08-12) ·
+<strong>대조 자료 기준일: 2025년 7월말 출판 자료 + 이후 갱신분</strong> ·
 원 자료: 국가유산청 공개 도난 국가유산 목록 ·
 이 도구는 1차 확인용이며 최종 판단은 반드시 원 공고와 실물 대조로 하시기 바랍니다.
 </footer>
