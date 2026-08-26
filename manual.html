@@ -103,12 +103,34 @@ footer{padding:6px 0 0}
 <table>
 <tr><th style="width:120px">탭</th><th>용도</th></tr>
 <tr><td><span class="tab">환지본처</span></td><td>열 때마다 아직 돌아오지 못한 도난 유산 한 점을 보여줍니다. 還至本處 — 제자리로 돌아가기까지.</td></tr>
-<tr><td><span class="tab">목록 대조</span></td><td><strong>여러 건을 한꺼번에</strong> — 엑셀 파일을 올리거나 한글·워드·엑셀 표를 복사해 붙여넣으면 전 건을 일괄 대조합니다. 구입 목록·기증 목록 심사에 씁니다.</td></tr>
+<tr><td><span class="tab">목록 대조</span></td><td><strong>여러 건을 한꺼번에</strong> — 엑셀·CSV 파일을 올리거나 한글·워드·엑셀 표를 복사해 붙여넣으면 전 건을 일괄 대조합니다. 구입 목록·기증 목록 심사에 씁니다.</td></tr>
 <tr><td><span class="tab">단건 검색</span></td><td><strong>한 건을 자세히</strong> — 유물 이름을 넣고 대조합니다. 이름 전체보다 <strong>특징 단어 몇 개</strong>가 낫습니다.</td></tr>
 <tr><td><span class="tab">이미지 대조</span></td><td>사진 파일을 올려 도난 기록의 사진과 견줍니다. <strong>단, 한계가 있습니다 — 4번을 꼭 읽어 주세요.</strong></td></tr>
 <tr><td><span class="tab">DB 열람</span></td><td>기록 513건 전체를 <strong>대표 사진과 함께</strong> 표로 훑어봅니다. 필터에 지역·인명·유물명 아무거나.<br><span class="small">기본 필터는 유물명·지역·번호를 봅니다. <b>「원문 포함」</b>을 켜면 공고 원문과 신고목록 비고까지 훑습니다.</span></td></tr>
 <tr><td><span class="tab">도움말</span></td><td>상세 설명. <span class="small">(DB 관리·발행 탭은 운영자용입니다.)</span></td></tr>
 </table>
+
+<h3>목록 대조에 넣을 수 있는 것</h3>
+<p style="margin-top:4px">받는 형식은 두 가지입니다.</p>
+<ul>
+<li><strong>파일 올리기</strong> — 엑셀(xlsx)과 CSV. <strong>CSV는 반드시 파일로 올리십시오.</strong> 내용을 복사해 붙여넣으면 따옴표 처리 때문에 여러 칸이 한 줄로 붙어 잘못 읽힙니다.</li>
+<li><strong>표 붙여넣기</strong> — 한글·워드·엑셀 문서 안의 표를 복사해 그대로 붙여넣는 경우. 머리글은 자동으로 알아봅니다.</li>
+</ul>
+<p>표에는 <strong>유물명 열 하나만 있어도</strong> 되고, 규격·수량·시대 열이 함께 있으면 정확도가 올라갑니다.
+그리고 <strong>목록 대조는 글자 대조입니다.</strong> 올린 목록이나 문서에 사진이 실려 있어도 그 사진은 견주지 않습니다.
+사진까지 확인하려면 <span class="tab">이미지 대조</span>에 사진 파일을 따로 올려야 합니다.</p>
+
+<div class="note-box">
+<strong>PDF·한글 공문은 그대로 올릴 수 없습니다.</strong>
+구입 예정 자료 화상공개 공문처럼 표가 든 PDF는 기관마다 표 짜임이 달라 자동으로 읽지 못하고, PDF에서 복사한 표는 칸 구분이 깨지기 일쑤입니다.
+아래 어느 방법으로든 <strong>표 내용을 엑셀에 옮겨 담은 뒤</strong> 올려 주세요.
+<ul>
+<li><strong>원본 문서를 구하는 것이 가장 빠릅니다.</strong> 공문 PDF는 대개 한글이나 엑셀 문서를 찍어낸 것입니다. 작성 기관에서 원본을 받으면 변환이 필요 없습니다 — 엑셀은 파일째 올리고, 한글은 표를 복사해 붙여넣으면 됩니다.</li>
+<li><strong>엑셀의 PDF 가져오기.</strong> 최신 엑셀(Microsoft 365 윈도우판)은 <b>데이터 → 데이터 가져오기 → 파일에서 → PDF</b>로 PDF 속 표를 자동으로 읽어 옵니다. 가져온 뒤 유물명·크기 칸이 제대로 나뉘었는지 훑어보고 올리세요.</li>
+<li><strong>건수가 적으면 직접 옮겨 적기.</strong> 유물명 열 하나면 대조가 되므로, 빈 엑셀에 이름을 한 줄씩 옮겨 적는 것이 가장 확실한 방법이기도 합니다.</li>
+</ul>
+<span class="small">외부 변환 사이트나 AI 서비스에 문서를 올려 변환하는 방법도 있지만, 그 순간 자료가 기관 밖으로 나갑니다. 공개된 문서가 아니면 쓰지 마세요.</span>
+</div>
 
 <h2><span class="n">3</span>결과 읽는 법</h2>
 
@@ -199,7 +221,9 @@ footer{padding:6px 0 0}
 <h2><span class="n">7</span>심사 실무에서 쓰는 법</h2>
 
 <h3>취득 심사 — 구입·기증 목록</h3>
-<p>목록을 엑셀이나 표째로 <span class="tab">목록 대조</span>에 넣습니다. 유물명 열만 있어도 되고, 규격·재질·시대 열이 함께 있으면 정확도가 올라갑니다.
+<p>목록을 엑셀이나 표째로 <span class="tab">목록 대조</span>에 넣습니다.
+PDF·한글 공문으로 받은 목록은 그대로 들어가지 않으니 <strong>2번 끝의 안내대로 엑셀에 옮긴 뒤</strong> 넣습니다.
+유물명 열만 있어도 되고, 규격·재질·시대 열이 함께 있으면 정확도가 올라갑니다.
 전 건이 <span class="res-alert">경보후보</span>·<span class="res-hit">전문히트</span>·<span class="res-pass">통과</span>로 갈리므로 <strong>앞의 두 갈래만 확인</strong>하면 됩니다.</p>
 
 <h3>반출 감정 — 개별 물품</h3>
@@ -292,7 +316,7 @@ footer{padding:6px 0 0}
 </main>
 
 <footer>
-도난국가유산 검색기 사용 안내 · <strong>문서 작성 2026-08-25</strong> · 배포본 v3.1p ·
+도난국가유산 검색기 사용 안내 · <strong>문서 작성 2026-08-26</strong> · 배포본 v3.1p ·
 기록 513건(자료 정비 2026-08-25) ·
 <strong>대조 자료 기준일: 2025년 7월말 출판 자료 + 이후 갱신분</strong> ·
 원 자료: 국가유산청 공개 도난 국가유산 목록 ·
