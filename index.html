@@ -132,7 +132,12 @@ footer{max-width:1200px;margin:0 auto;padding:8px 18px 26px;color:var(--faint);f
   nav::-webkit-scrollbar{display:none}
   nav button{flex:0 0 auto;white-space:nowrap;padding:10px 11px}
   nav button:last-child{margin-right:24px}
-  /* DB 열람: 표 → 유물별 카드 (사진 왼쪽, 유물명 첫 줄, 나머지 한 줄 요약) */
+}
+
+
+
+/* DB 열람: 휴대폰·태블릿(1000px 이하)은 표 대신 유물별 카드 — 표가 상자보다 넓어 옆으로 밀리던 구간 */
+@media(max-width:1000px){
   #btab,#btab tbody{display:block;background:none}
   #btab tr.bhead{display:none}
   #btab tr{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 0;position:relative;min-height:74px;
@@ -146,11 +151,9 @@ footer{max-width:1200px;margin:0 auto;padding:8px 18px 26px;color:var(--faint);f
   #btab td.bid::after,#btab td.btype::after,#btab td.breg::after,#btab td.brem::after{content:"·";margin:0 5px;color:var(--faint)}
   #btab td.brem::before{content:"잔여 "}
   #btab td.bdate::before{content:"공고 "}
-  #btab td.bflag{flex-basis:100%;font-size:11.5px;color:var(--faint)}
+  #btab td.bflag{flex-basis:100%;font-size:12px;color:var(--faint)}
   #btab td.bflag:empty{display:none}
 }
-
-
 
 /* 환지본처(첫 화면) */
 #homeFig{margin:0;text-align:center}
