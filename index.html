@@ -70,6 +70,10 @@ th{background:var(--boxdeep);font-weight:700;color:var(--ink)}
 #btab td.bth{width:60px;padding:4px;text-align:center;vertical-align:middle}
 #btab td.bth img{width:52px;height:52px;object-fit:cover;display:block;border:1px solid var(--line);background:#fff}
 #btab td.bth .bnopic{color:var(--faint);font-size:12px}
+#btab th:nth-child(4),#btab th:nth-child(5),#btab th:nth-child(7),#btab th:nth-child(8),
+#btab td.btype,#btab td.breg,#btab td.brem,#btab td.bdate{white-space:nowrap}
+#btab td.bname{min-width:150px}
+#btab td.bid{min-width:66px;overflow-wrap:anywhere}
 #btab td.bth .btb{display:block;margin-top:2px;font-size:9.5px;font-weight:700;color:var(--warn);line-height:1.2}
 /* 대표 이미지 (표시 전용) */
 .cand{overflow:hidden}
@@ -128,6 +132,22 @@ footer{max-width:1200px;margin:0 auto;padding:8px 18px 26px;color:var(--faint);f
   nav::-webkit-scrollbar{display:none}
   nav button{flex:0 0 auto;white-space:nowrap;padding:10px 11px}
   nav button:last-child{margin-right:24px}
+  /* DB 열람: 표 → 유물별 카드 (사진 왼쪽, 유물명 첫 줄, 나머지 한 줄 요약) */
+  #btab,#btab tbody{display:block;background:none}
+  #btab tr.bhead{display:none}
+  #btab tr{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 0;position:relative;min-height:74px;
+    padding:8px 10px 8px 76px;background:var(--card);border:1px solid var(--line);border-top:0}
+  #btab tr:nth-child(2){border-top:1px solid var(--line)}
+  #btab td{border:0;padding:0;font-size:12.5px;color:var(--sub)}
+  #btab td.bth{position:absolute;left:8px;top:8px;width:auto;padding:0}
+  #btab td.bname{order:-1;flex-basis:100%;font-size:14px;font-weight:800;color:var(--ink);line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+  #btab td.bspec{display:none}
+  #btab td.bid,#btab td.btype,#btab td.breg,#btab td.brem{margin-right:0}
+  #btab td.bid::after,#btab td.btype::after,#btab td.breg::after,#btab td.brem::after{content:"·";margin:0 5px;color:var(--faint)}
+  #btab td.brem::before{content:"잔여 "}
+  #btab td.bdate::before{content:"공고 "}
+  #btab td.bflag{flex-basis:100%;font-size:11.5px;color:var(--faint)}
+  #btab td.bflag:empty{display:none}
 }
 
 
@@ -968,9 +988,9 @@ function renderBrowse(){
     (full?((r['원문블록']||'')+(r['신고목록비고']||'')+(r['관련자료']||'')):'')).includes(q));
   document.getElementById('bstat').textContent=rows.length+'건';
   const t=document.getElementById('btab');
-  t.innerHTML='<tr><th>사진</th><th>정본ID</th><th>유물명</th><th>유형</th><th>지역</th><th>규격</th><th>잔여</th><th>공고일</th><th>플래그</th></tr>'+
+  t.innerHTML='<tr class="bhead"><th>사진</th><th>정본ID</th><th>유물명</th><th>유형</th><th>지역</th><th>규격</th><th>잔여</th><th>공고일</th><th>플래그</th></tr>'+
     rows.slice(0,600).map(r=>{const u=UPDATES[r['정본ID']];const rem=u?u.rem:r['잔여'];
-      return '<tr>'+browseThumb(r)+'<td>'+esc(r['정본ID'])+'</td><td>'+esc(r['유물명'])+(r['구분']==='유실'?' <span class="pill lost">유실</span>':'')+'</td><td>'+esc(r['유형'])+'</td><td>'+esc(r['지역'])+'</td><td>'+esc(String(r['규격']).slice(0,26))+'</td><td>'+esc(rem===''?'미상':rem)+(u?'*':'')+'</td><td>'+esc(r['도난공고일'])+'</td><td class="small">'+esc(String(r['검증플래그']).split(';').filter(f=>!f.startsWith('공고일후보')).join(';'))+'</td></tr>';}).join('');
+      return '<tr>'+browseThumb(r)+'<td class="bid">'+esc(r['정본ID'])+'</td><td class="bname">'+esc(r['유물명'])+(r['구분']==='유실'?' <span class="pill lost">유실</span>':'')+'</td><td class="btype">'+esc(r['유형'])+'</td><td class="breg">'+esc(r['지역'])+'</td><td class="bspec">'+esc(String(r['규격']).slice(0,26))+'</td><td class="brem">'+esc(rem===''?'미상':rem)+(u?'*':'')+'</td><td class="bdate">'+esc(r['도난공고일'])+'</td><td class="small bflag">'+esc(String(r['검증플래그']).split(';').filter(f=>!f.startsWith('공고일후보')).join(';'))+'</td></tr>';}).join('');
 }
 document.getElementById('bq').addEventListener('input',renderBrowse);
 document.getElementById('bfull').addEventListener('change',renderBrowse);
