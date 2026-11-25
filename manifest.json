@@ -6,11 +6,11 @@
  "scope": "./",
  "display": "standalone",
  "background_color": "#ffffff",
- "theme_color": "#d4311e",
+ "theme_color": "#8a1c1c",
  "lang": "ko",
  "icons": [
   {
-   "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%23d4311e'/><text x='32' y='46' font-size='38' fill='%23ffffff' text-anchor='middle' font-family='serif' font-weight='500'>査</text></svg>",
+   "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%238a1c1c'/><text x='32' y='46' font-size='38' fill='%23ffffff' text-anchor='middle' font-family='serif' font-weight='500'>査</text></svg>",
    "sizes": "any",
    "type": "image/svg+xml",
    "purpose": "any"
