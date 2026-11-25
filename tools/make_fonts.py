@@ -1,5 +1,5 @@
 """본명조 300·500을 검색기에 필요한 글자만 추려 woff2로 만든다.
-쓰기: python3 make_fonts.py <index.html> <manual.html> <out_dir>
+쓰기: python tools/make_fonts.py index.html manual.html fonts
 """
 import sys, json, re, os
 from fontTools.ttLib import TTCollection
