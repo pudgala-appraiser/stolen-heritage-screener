@@ -14,3 +14,16 @@ Noto Serif CJK(Light·Medium)와 fonttools·brotli가 필요하며, 글꼴 경�
 ```
 python tools/make_fonts.py index.html manual.html fonts
 ```
+
+## embed_pdfjs.py — PDF 판독 라이브러리 갈아 끼우기
+
+PDF 목록 변환 도구는 [pdf.js](https://mozilla.github.io/pdf.js/)(Mozilla, Apache License 2.0)를 `index.html` 안에 넣어 씁니다.
+지금 든 것은 pdfjs-dist 6.5.438의 legacy 빌드입니다. 보안 수정이 나오면 새 판으로 갈아 끼웁니다.
+
+```
+npm pack pdfjs-dist            # 꾸러미를 받아 풀면 legacy/build/ 에 두 파일이 있습니다
+python tools/embed_pdfjs.py index.html pdf.min.mjs pdf.worker.min.mjs
+```
+
+갈아 끼운 뒤에는 PDF 몇 개를 변환해 보고 헤더의 통제 시험 배지를 확인하십시오.
+표를 읽는 규칙(`pdfListExtract`)과 화면은 `index.html`의 `pdf-convert` 스크립트가 정본입니다.
