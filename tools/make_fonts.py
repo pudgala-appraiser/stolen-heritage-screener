@@ -27,7 +27,10 @@ punct = set('·‘’“”…–—―「」『』〈〉《》※→↗℃×㎝
 ui = set(re.sub(r'<[^>]+>', '', open(manual_html, encoding='utf-8').read())) | set('還至本處査')
 ui = {c for c in ui if ord(c) > 0x7f}
 t500 = hangul | han | ascii_ | punct | ui
-t300 = set('還至本處') | {' '}
+# 가는 명조(300)는 큰 글씨 몇 군데에만 쓴다 — data-thin을 붙인 요소의 글자만 싣는다
+thin = ''.join(re.sub(r'<[^>]+>', '', m) for h in (s, open(manual_html, encoding='utf-8').read())
+               for m in re.findall(r'<(?:h1|div|p|span)[^>]*\bdata-thin\b[^>]*>(.*?)</(?:h1|div|p|span)>', h, re.S))
+t300 = set('還至本處') | set(thin) | {' '}
 
 def kr_index(path):
     for i, f in enumerate(TTCollection(path).fonts):
@@ -46,4 +49,4 @@ def build(weight_name, text, dest):
 
 build('Light', t300, os.path.join(out, 'dasot-serif-300.woff2'))
 build('Medium', t500, os.path.join(out, 'dasot-serif-500.woff2'))
-print('hangul', len(hangul), 'han', len(han))
+print('hangul', len(hangul), 'han', len(han), 'thin', ''.join(sorted(t300)))

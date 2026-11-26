@@ -7,7 +7,7 @@
 ## 사용
 
 - 브라우저에서 바로 사용: **https://pudgala-appraiser.github.io/stolen-heritage-screener**
-- 처음이신 분은 **[사용 안내](https://pudgala-appraiser.github.io/stolen-heritage-screener/manual.html)** 를 먼저 보세요 — 예시 검색어와 결과 읽는 법을 한 쪽으로 정리했습니다.
+- 처음이신 분은 **[사용 안내](https://pudgala-appraiser.github.io/stolen-heritage-screener/manual.html)** 를 먼저 보세요 — 화면 그림과 함께 차례대로 읽는 설명서입니다. 인쇄하거나 전달할 때는 **[PDF](https://pudgala-appraiser.github.io/stolen-heritage-screener/manual.pdf)**(A4 15쪽)를 쓰십시오. 검색기의 **도움말** 탭에서도 열거나 내려받을 수 있습니다.
 - 또는 `index.html`을 내려받아 더블클릭으로 실행합니다. 대조 기능은 인터넷 없이도 동작합니다.
   (사진 대조와 환지본처 화면은 저장소의 `images/` 폴더가 함께 있어야 사진이 보입니다.)
 
@@ -21,7 +21,7 @@
 | **이미지 대조** | 사진 한 장을 넣어 같은 사진이 도난 기록에 있는지 봅니다. |
 | **DB 관리·발행** | 신규 공고 등록, 회수 처리, 갱신분 내보내기, 새 HTML 발행. |
 | **DB 열람** | 내장 513건을 필터(유물명·지역·ID)로 훑어봅니다. 지역명·인명 조회는 이 탭이 빠릅니다. |
-| **도움말** | 사용법과 한계 고지. |
+| **도움말** | 짧은 요약과 한계 고지, 사용 안내(웹·PDF)로 가는 길. |
 
 ## PDF 목록 변환 (v4.0부터)
 
